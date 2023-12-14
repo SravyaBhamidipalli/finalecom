@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid" style="background-color: #f0f0f0;">
+    
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            {% for i in p %}
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{{ i.img.url }}" class="card-img-top img-fluid" style="height: 300px; object-fit: cover;" alt="{{ i.title }}">
+                    <div class="card-body">
+                        <a href="{% url 'myapp:detail' i.id i.slug %}">
+                            <h5 class="card-title"><b>{{ i.title }}</b></h5>
+                        </a>
+                        <p class="card-text">₹{{ i.price }}</p>
+                        <a href="{% url 'myapp:detail' i.id i.slug %}" class="btn btn-primary">View Product</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

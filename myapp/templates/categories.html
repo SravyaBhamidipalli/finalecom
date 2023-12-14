@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Products By Category</h3>
+<div class="row">
+    {% for i in c %}
+    <div class="col-md-3">
+        <div class="card">
+            <a href="{% url 'myapp:products' i.id i.slug %}">
+                <img src="{{i.img.url}}" class="card-img-top" alt="{{i.title}}" width="100px" height="200px">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'myapp:products' i.id i.slug %}">{{i.title}}</a></h5>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

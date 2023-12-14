@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th scope="col">S.NO</th>
+            <th scope="col">Product</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total Cost</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in c %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ item.product.title }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.total }}</td>
+                <td>
+                  <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="item_id" value="{{ item.id }}"> <!-- Change i.id to item.id -->
+                    <input class="btn btn-danger" type="submit" name="delete" value="Delete">
+                </form>
+                
+                
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+<h4 class="btn-danger">Total : Rs {{ t }}<br></h4>
+<br>
+<a class="btn btn-secondary" href="{% url 'myapp:order' %}">Order</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a class="btn btn-secondary" href="{% url 'myapp:category' %}">Back/Continue</a>
+{% endblock %}
