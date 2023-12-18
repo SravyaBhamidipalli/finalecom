@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path,include
-from myapp.views import send_email, order, products, detail, cart_view,category, return_view,add_reply, cancel_view, add_to_wishlist, view_wishlist,add_review,contact_us,contact_us_success,faq_list
+from myapp.views import send_email, order, products, detail, cart_view, category, return_view, add_reply, cancel_view, add_to_wishlist, view_wishlist, add_review, contact_us, contact_us_success, faq_list
 app_name='myapp'
 
 urlpatterns = [
