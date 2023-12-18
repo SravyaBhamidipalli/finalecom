@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from myapp.models import Product,Cart,Buy,Wishlist,Reply, Category,FAQ
+from myapp.models import Product,Cart,Buy,Wishlist,Reply, Category,FAQ,ContactMessage
 from myapp.forms import CartForm
 from django.urls import reverse
 from django.shortcuts import render
