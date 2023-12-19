@@ -75,16 +75,7 @@ def return_view(request):
     return HttpResponse('Transaction Succesful')
 def cancel_view(request):
     return HTTpResponse('Trransaction Canclled')
-def view_wishlist(request):
-    wishlist= Wishlist.objects(user=request.user)
-    return render(request, 'wishlist.html', {'wishlist': wishlist})
 
-def add_to_wishlist(request, product_id):
-    product = get_object_or_404(Product, id=product_id)
-    wishlist = Wishlist.objects.get(user=request.user)
-    wishlist.add(product)
-    #return redirect('myapp:detail', product_id=product.id, slug=product.slug)
-    return redirect('myapp:view_wishlist')
 from django.core.mail import BadHeaderError, send_mail
 from django.http import HttpResponse, HttpResponseRedirect
 
@@ -117,17 +108,6 @@ def add_reply(request, product_id):
     return redirect('myapp:some_error_page')
 
 #===========================================================================rating and reviews code
-'''def add_rating(request, product_id):
-    product = get_object_or_404(Product, id=product_id)
-    if request.method == 'POST':
-        rating_value = request.POST.get('rating_value')
-        if rating_value:
-            user = request.user
-            rating, created = Rating.objects.get_or_create(user=user, product=product)
-            rating.rating = int(rating_value)
-            rating.save()
-            # Perform any other actions you need after adding a rating
-    return HttpResponseRedirect(product.get_absolute_url())'''
 def add_review(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     if request.method == 'POST':
