@@ -49,12 +49,6 @@ class Buy(models.Model):
 
     def _str_(self):
         return self.product.title+'_'+str(self.id)
-        
-class Wishlist(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    products = models.ManyToManyField('Product')
-    def _str_(self):
-        return f"Wishlist for {self.user.username}"
 
 #===============================================================================================
 class Reply(models.Model):
@@ -65,14 +59,6 @@ class Reply(models.Model):
 
     def __str__(self):
         return f"Reply by {self.user.username} on {self.product.title}"
-
-'''class Rating(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='ratings')
-    rating = models.IntegerField(choices=[(i, i) for i in range(1, 6)])  # Rating from 1 to 5
-
-    def __str__(self):
-        return f"{self.user.username}'s rating for {self.product.title}"'''
 
 #=========================== contact us
 
