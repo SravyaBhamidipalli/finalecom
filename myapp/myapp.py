@@ -35,11 +35,5 @@ def total(request):
         #t+=i.total()
         t += i.price * i.quantity
     return t
-'''def total(request):
-    items = get_cart(request)
-    t = 0
-    for i in items:
-        t += i.total_price  # Access the 'total_price' attribute or method from your Cart model
-    return t  # Ensure the return statement is outside the loop to calculate the total correctly'''
   
 
